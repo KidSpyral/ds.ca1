@@ -4,28 +4,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@NamedQueries({ @NamedQuery(name = "Deposit.findAll", query = "select o from Deposit o"),
+		@NamedQuery(name = "Deposit.findByDate", query = "select o from Deposit o where o.depositDate=:depositDate") })
+
+@XmlRootElement(name = "deposit")
 
 @Entity
 public class Deposit {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String depositDate;
 	private double depositAmount;
-	
+
 	public Deposit() {
 
 	}
-	
+
 	public Deposit(String depositDate, double depositAmount) {
 		// TODO Auto-generated constructor stub
 		this.depositDate = depositDate;
 		this.depositAmount = depositAmount;
-		
+
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -49,5 +57,5 @@ public class Deposit {
 	public void setDepositAmount(double depositAmount) {
 		this.depositAmount = depositAmount;
 	}
-	
+
 }

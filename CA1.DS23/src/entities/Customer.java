@@ -1,6 +1,5 @@
 package entities;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,32 +7,33 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
-@NamedQueries({
-	@NamedQuery(name="Customer.findAll", query="select o from Customer o"), 
-	@NamedQuery(name = "Customer.findByName", query = "select o from Customer o where o.name=:name")
-})
+@NamedQueries({ @NamedQuery(name = "Customer.findAll", query = "select o from Customer o"),
+		@NamedQuery(name = "Customer.findByName", query = "select o from Customer o where o.name=:name") })
 
+@XmlRootElement(name = "customer")
 
 @Entity
 public class Customer {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
 	private String phoneNumber;
 	private String address;
 	private double salary;
-	
+
 	@OneToOne
 	private Loan loan;
-	
+
 	public Customer() {
 
 	}
-	
+
 	public Customer(String name, String phoneNumber, String address, double salary, Loan loan) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
@@ -42,7 +42,7 @@ public class Customer {
 		this.loan = loan;
 	}
 
-	
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -50,7 +50,8 @@ public class Customer {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
+	@XmlElement
 	public String getName() {
 		return name;
 	}
@@ -59,6 +60,7 @@ public class Customer {
 		this.name = name;
 	}
 
+	@XmlElement
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -67,6 +69,7 @@ public class Customer {
 		this.phoneNumber = phoneNumber;
 	}
 
+	@XmlElement
 	public String getAddress() {
 		return address;
 	}
@@ -75,14 +78,16 @@ public class Customer {
 		this.address = address;
 	}
 
+	@XmlElement
 	public double getSalary() {
 		return salary;
 	}
 
-	public void setSalary(int salary) {
+	public void setSalary(double salary) {
 		this.salary = salary;
 	}
-	
+
+	@XmlElement
 	public Loan getLoan() {
 		return loan;
 	}
@@ -90,8 +95,5 @@ public class Customer {
 	public void setLoan(Loan loan) {
 		this.loan = loan;
 	}
-	
-	
 
 }
-
