@@ -10,12 +10,11 @@ import javax.persistence.Persistence;
 import entities.Customer;
 
 public class CustomerDAO {
-	
-	protected static EntityManagerFactory emf = 
-			Persistence.createEntityManagerFactory("jpaPU"); 	
-	
+
+	protected static EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaPU");
+
 	public CustomerDAO() {
-		
+
 	}
 
 	public void persist(Customer customer) {
@@ -25,7 +24,7 @@ public class CustomerDAO {
 		em.getTransaction().commit();
 		em.close();
 	}
-	
+
 	public void remove(Customer customer) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -33,7 +32,7 @@ public class CustomerDAO {
 		em.getTransaction().commit();
 		em.close();
 	}
-	
+
 	public Customer merge(Customer customer) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -42,7 +41,7 @@ public class CustomerDAO {
 		em.close();
 		return updatedCustomer;
 	}
-	
+
 	public List<Customer> getAllCustomers() {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -52,17 +51,14 @@ public class CustomerDAO {
 		em.close();
 		return customersFromDB;
 	}
-	
-	public Customer getCustomerByName(String name){
+
+	public Customer getCustomerByName(String name) {
 		EntityManager em = emf.createEntityManager();
-		List<Customer> customers = (List<Customer>) 
-				em.createNamedQuery("Customer.findByName").
-				setParameter("name", name).getResultList();
+		List<Customer> customers = (List<Customer>) em.createNamedQuery("Customer.findByName")
+				.setParameter("name", name).getResultList();
 		em.close();
-		//Do whatever you want with the customer(s) with that username
-		//Here we just return the first one
 		Customer cus = new Customer();
-		for(Customer c: customers) {
+		for (Customer c : customers) {
 			cus = c;
 		}
 		return cus;
