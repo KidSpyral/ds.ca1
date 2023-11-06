@@ -24,8 +24,8 @@
         <input type="submit" value="View JSON All Customers ">
     </form>
 	
-	<form action= "http://localhost:8080/CA1.DS23/restful-services/customerserviceDBCRUD/json/employee/11elderheathcrescent" method="GET">  
-        <input type="submit" value="View JSON Customer Address">
+	<form action= "http://localhost:8080/CA1.DS23/restful-services/customerserviceDBCRUD/jsonDB/customer/STEVO" method="GET">  
+        <input type="submit" value="View JSON Customer">
     </form>
 	
 	
@@ -45,6 +45,10 @@
         <input type="submit" value="View JSON All Loans ">
     </form>
 	
+			<form action= "http://localhost:8080/CA1.DS23/restful-services/loanserviceDBCRUD/jsonDB/loan/500000.00" method="GET">  
+        <input type="submit" value="View JSON Loan ">
+    </form>
+	
 	
 	    <form action= "http://localhost:8080/CA1.DS23/restful-services/depositserviceDBCRUD/hello" method="GET">
         <input type="submit" value="Hello World Test">
@@ -60,6 +64,10 @@
 	
 		<form action= "http://localhost:8080/CA1.DS23/restful-services/depositserviceDBCRUD/json/deposits" method="GET">  
         <input type="submit" value="View JSON All Deposits ">
+    </form>
+	
+		<form action= "http://localhost:8080/CA1.DS23/restful-services/depositserviceDBCRUD/jsonDB/deposit/10.1.23" method="GET">  
+        <input type="submit" value="View JSON Deposit">
     </form>
 	
 </body>

@@ -71,10 +71,10 @@ public class CustomerServiceDBCRUD {
 	}
 
 	@GET
-	@Path("/customer/{customeraddress}")
+	@Path("/customer/{customerName}")
 	@Produces("application/xml")
-	public Customer getCustomer(@PathParam("customeraddress") String address) {
-		return customers.get(address);
+	public Customer getCustomer(@PathParam("customerName") String name) {
+		return customers.get(name);
 	}
 
 	@POST
@@ -99,10 +99,10 @@ public class CustomerServiceDBCRUD {
 	}
 
 	@GET
-	@Path("/json/customers/{customeraddress}")
+	@Path("/json/customers/{customerName}")
 	@Produces("application/json")
-	public Customer getCustomerJSON(@PathParam("customeraddress") String address) {
-		return customers.get(address);
+	public Customer getCustomerJSON(@PathParam("customerName") String name) {
+		return customers.get(name);
 	}
 
 	@GET
